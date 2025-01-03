@@ -9,16 +9,17 @@
 
 -- (Exercício 2) Selecione o visit_id das 10 compras mais recentes efetuadas
 -- (dados da tabela sales.funnel)
-	select visit_id
+	select *
 	from sales.funnel
-	order by finish_checkout_date
+	where paid_date is not null
+	order by paid_date
 	limit 10
 
 -- (Exercício 3) Selecione todos os dados dos 10 clientes com maior score nascidos
 -- após 01/01/2000 (dados da tabela sales.customers)
 	select *
 	from sales.customers 
-	where birth_date > '20000101'
+	where birth_date >= '20000101'
 	order by score desc
 	limit 10
 
